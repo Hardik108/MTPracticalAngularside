@@ -1,0 +1,33 @@
+<div class="clearfix">
+  <div class="p-3 text-center text-white mt-3 cursor float-right">
+    <button type="button" [routerLink]="['/products/manage']" class="btn btn-primary">Add Product</button>
+  </div>
+</div>
+
+<div class="jumbotron">
+  <h1>Products</h1>
+  <div class="row mb-4">
+    <div class="form-group col-md-9">
+      <input type="text" placeholder="What're you searching for?" [(ngModel)]="searchbox" class="form-control form-control-underlined">
+    </div>
+    <div class="form-group col-md-3">
+      <button type="button" class="btn btn-info rounded-pill btn-block shadow-sm" (click)="find()">Search</button>
+    </div>
+  </div>
+  <div class="row" *ngIf="(products | async)?.length>0">
+  <div class="card" style="width: 18rem;" *ngFor="let item of products | async">
+    <img class="card-img-top" [src]="picPoint+item.product_img" height="250" width="300" alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title">{{item.title}}</h5>
+      <p class="card-text">$ {{item.price}} <span class="float-right">$ {{item.discount}} Off</span></p>
+      <a [routerLink]="['/products/manage/'+item._id]" class="btn btn-warning">Edit</a>
+      <a (click)="remove(item._id)" class="btn btn-danger float-right">Remove</a>
+    </div>
+  </div>
+  </div>
+  <div *ngIf="(products | async)?.length<=0">No records found.</div>
+  <ul class="pagination justify-content-center" style="margin:20px 0">
+    <li class="page-item" *ngIf="offset>0"><a class="page-link" (click)="turnPage('-')">Previous</a></li>
+    <li class="page-item" *ngIf="offset<=(products | async)?.length"><a class="page-link" (click)="turnPage('+')">Next</a></li>
+  </ul>
+</div>
