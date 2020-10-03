@@ -48,10 +48,3 @@ export class LoginComponent implements OnInit {
   }
 
 }
-// https://bbbootstrap.com/snippets/ecommerce-product-list-ratings-62612459
-// https://bootsnipp.com/snippets/92xNm
-// https://bootsnipp.com/snippets/N6yNO
-// https://medium.com/ramsatt/angular-7-crud-part-6-create-new-product-d26e59b48743
-// https://medium.com/codingthesmartway-com-blog/building-an-angular-5-project-with-bootstrap-4-and-firebase-4504ff7717c1
-// https://jasonwatmore.com/post/2018/05/10/angular-6-reactive-forms-validation-example
-// https://monkelite.com/how-to-encrypt-and-decrypt-data-in-angular-8/
